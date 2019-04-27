@@ -1,0 +1,25 @@
+{
+  "name": "adonis-webpack",
+  "version": "1.0.0",
+  "description": "Webpack integrated with AdonisJs",
+  "scripts": {
+    "lint": "standard",
+    "pretest": "npm run lint",
+    "test": "japa"
+  },
+  "author": "Felipe Ohira",
+  "license": "MIT",
+  "devDependencies": {
+    "@adonisjs/fold": "^4.0.9",
+    "@adonisjs/sink": "^1.0.13",
+    "japa": "^1.0.5",
+    "japa-cli": "^1.0.1",
+    "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "@adonisjs/ace": "^5.0.8",
+    "@adonisjs/http-logger": "^1.0.0",
+    "webpack": "^4.30.0",
+    "webpack-dev-middleware": "^3.6.2"
+  }
+}
