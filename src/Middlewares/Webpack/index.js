@@ -7,18 +7,18 @@ class Webpack {
 
     const compiler = webpack(this.config.compilerConfig)
 
-    this.webpackDevMiddleware = webpackDevMiddleware(
-      compiler,
-      this.config.middlewareConfig
-    )
+    if (this.config.enableDevMiddleware) {
+      this.webpackDevMiddleware = webpackDevMiddleware(
+        compiler,
+        this.config.middlewareConfig
+      )
+    } else {
+      this.webpackDevMiddleware = (_, __, next) => next()
+    }
   }
 
   async handle ({ request, response }, next) {
-    if (this.config.enableDevMiddleware) {
-      return this.webpackDevMiddleware(request.request, response.response, next)
-    } else {
-      return next()
-    }
+    return this.webpackDevMiddleware(request.request, response.response, next)
   }
 }
 
